@@ -1,4 +1,4 @@
-class SearchResult {
+export class SearchResult {
   $searchResult = null;
   data = null;
   onClick = null;

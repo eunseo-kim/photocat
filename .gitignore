@@ -10,5 +10,4 @@ coverage
 dist/
 .cache/
 .gradle/
-해결과정.md/
 photocat.http

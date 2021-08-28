@@ -1,6 +1,11 @@
+import { api } from "./api/api.js";
+import { SearchInput } from "./core/SearchInput.js";
+import { SearchResult } from "./core/SearchResult.js";
+import { ImageInfo } from "./core/ImageInfo.js";
+
 console.log("app is running!");
 
-class App {
+export class App {
   $target = null;
   data = [];
 

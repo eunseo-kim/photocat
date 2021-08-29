@@ -30,7 +30,8 @@ body * {
   margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(4, minmax(250px, 1fr));
-  grid-gap: 10px;
+  grid-gap: 20px;
+  grid-auto-rows: 350px;
 }
 
 .SearchResult img {
@@ -86,6 +87,23 @@ body * {
 }
 
 /* 디바이스의 가로 길이에 따라 검색결과 변경 */
+@media screen and (max-width: 992px) {
+  .SearchResult {
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .SearchResult {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .SearchResult {
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
+  }
+}
 
 /* dark mode 처리
 @media (prefers-color-scheme: dark) {

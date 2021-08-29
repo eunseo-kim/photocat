@@ -10,7 +10,8 @@ html {
 }
 
 body * {
-  /*font-family: Goyang;*/
+  font-family: "Gugi", cursive;
+  font-family: "Poor Story", cursive;
 }
 
 *,
@@ -83,6 +84,8 @@ body * {
 .ImageInfo .content-wrapper img {
   width: 100%;
 }
+
+/* 디바이스의 가로 길이에 따라 검색결과 변경 */
 
 /* dark mode 처리
 @media (prefers-color-scheme: dark) {

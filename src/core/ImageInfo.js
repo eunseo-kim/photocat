@@ -3,7 +3,7 @@ export class ImageInfo {
   data = null;
 
   constructor({ $target, data }) {
-    const $imageInfo = document.createElement("div");
+    const $imageInfo = document.createElement("article");
     $imageInfo.className = "ImageInfo";
     this.$imageInfo = $imageInfo;
     $target.appendChild($imageInfo);
@@ -24,15 +24,15 @@ export class ImageInfo {
 
       this.$imageInfo.innerHTML = `
           <div class="content-wrapper">
-            <div class="title">
-              <span>${name}</span>
-              <div class="close">x</div>
-            </div>
+            <article class="title">
+              <p>${name}</p>
+              <button type="button" class="close">x</button>
+            </article>
             <img src="${url}" alt="${name}"/>        
-            <div class="description">
-              <div>성격: ${temperament}</div>
-              <div>태생: ${origin}</div>
-            </div>
+            <article class="description">
+              <p>성격: ${temperament}</p>
+              <p>태생: ${origin}</p>
+            </article>
           </div>`;
       this.$imageInfo.style.display = "block";
     } else {

@@ -4,8 +4,11 @@ export class SearchResult {
   onClick = null;
 
   constructor({ $target, initialData, onClick }) {
-    this.$searchResult = document.createElement("div");
+    this.$searchResult = document.createElement("article");
     this.$searchResult.className = "SearchResult";
+    const ul = document.createElement("ul");
+    ul.className = "card-list";
+    this.$searchResult.appendChild(ul);
     $target.appendChild(this.$searchResult);
 
     this.data = initialData;
@@ -23,14 +26,14 @@ export class SearchResult {
     this.$searchResult.innerHTML = this.data
       .map(
         (cat) => `
-            <div class="item">
+            <li class="item">
               <img src=${cat.url} alt=${cat.name} />
-            </div>
+            </li>
           `
       )
       .join("");
 
-    this.$searchResult.querySelectorAll(".item").forEach(($item, index) => {
+    this.$searchResult.querySelectorAll("li").forEach(($item, index) => {
       $item.addEventListener("click", () => {
         this.onClick(this.data[index]);
       });

@@ -10,7 +10,6 @@ html {
 }
 
 body * {
-  font-family: "Gugi", cursive;
   font-family: "Poor Story", cursive;
 }
 
@@ -105,11 +104,32 @@ body * {
   }
 }
 
-/* dark mode 처리
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #000;
-    color: white;
-  }
+/* dark mode 처리 */
+
+.darkmode-btn {
+  font-size: 2em;
 }
-*/
+
+#toggleBtn {
+  display: none;
+}
+
+.darkmode-btn label {
+  font-family: "Gugi", cursive;
+  cursor: pointer;
+}
+
+:root[color-theme="dark"] {
+  --background-color: #000;
+  --color: white;
+}
+
+:root[color-theme="white"] {
+  --background-color: white;
+  --color: #000;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--color);
+}

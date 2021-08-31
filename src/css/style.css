@@ -5,12 +5,25 @@
   font-style: normal; 
 }*/
 
+:root {
+  --color-dark: #000000;
+  --color-light: #ffffff;
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
 html {
   box-sizing: border-box;
 }
 
 body * {
   font-family: "Poor Story", cursive;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.5s;
 }
 
 *,
@@ -105,9 +118,11 @@ body * {
 }
 
 /* dark mode 처리 */
-
-.darkmode-btn {
-  font-size: 2em;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--color-dark);
+    --text-color: var(--color-light);
+  }
 }
 
 #toggleBtn {
@@ -115,21 +130,16 @@ body * {
 }
 
 .darkmode-btn label {
-  font-family: "Gugi", cursive;
   cursor: pointer;
+  font-size: 3rem;
 }
 
-:root[color-theme="dark"] {
-  --background-color: #000;
-  --color: white;
+.dark-mode {
+  --background-color: var(--color-dark);
+  --text-color: var(--color-light);
 }
 
-:root[color-theme="white"] {
-  --background-color: white;
-  --color: #000;
-}
-
-body {
-  background-color: var(--background-color);
-  color: var(--color);
+.light-mode {
+  --background-color: var(--color-light);
+  --text-color: var(--color-dark);
 }

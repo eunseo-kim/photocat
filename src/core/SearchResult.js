@@ -4,12 +4,12 @@ export class SearchResult {
   onClick = null;
 
   constructor({ $target, initialData, onClick }) {
-    this.$searchResult = document.createElement("article");
+    const article = document.createElement("section");
+    article.className = "search-section";
+    this.$searchResult = document.createElement("ul");
     this.$searchResult.className = "SearchResult";
-    const ul = document.createElement("ul");
-    ul.className = "card-list";
-    this.$searchResult.appendChild(ul);
-    $target.appendChild(this.$searchResult);
+    article.appendChild(this.$searchResult);
+    $target.appendChild(article);
 
     this.data = initialData;
     this.onClick = onClick;

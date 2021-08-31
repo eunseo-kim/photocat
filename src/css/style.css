@@ -12,6 +12,14 @@
   --text-color: #000000;
 }
 
+html,
+body,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -23,7 +31,7 @@ body * {
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  transition: all 0.5s;
+  transition: background-color 0.5s;
 }
 
 *,
@@ -143,3 +151,5 @@ body {
   --background-color: var(--color-light);
   --text-color: var(--color-dark);
 }
+
+/* 768px 이하일 때 모달의 가로 길이를 디바이스 가로 길이만큼 */

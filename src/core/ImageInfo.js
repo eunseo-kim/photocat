@@ -18,11 +18,17 @@ export class ImageInfo {
     this.render();
   }
 
+  closeModal() {
+    const ImageInfo = document.querySelector(".ImageInfo");
+    ImageInfo.style.display = "none";
+  }
+
   render() {
     if (this.data.visible) {
       const { name, url, temperament, origin } = this.data.image;
 
       this.$imageInfo.innerHTML = `
+          <div class="overlay"></div>
           <div class="content-wrapper">
             <article class="title">
               <p>${name}</p>
@@ -35,6 +41,20 @@ export class ImageInfo {
             </article>
           </div>`;
       this.$imageInfo.style.display = "block";
+
+      const overlay = document.querySelector(".overlay");
+      const closeButton = document.querySelector(".close");
+      overlay.addEventListener("click", () => {
+        this.closeModal();
+      });
+      closeButton.addEventListener("click", () => {
+        this.closeModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          this.closeModal();
+        }
+      });
     } else {
       this.$imageInfo.style.display = "none";
     }

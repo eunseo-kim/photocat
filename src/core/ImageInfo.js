@@ -25,7 +25,8 @@ export class ImageInfo {
 
   render() {
     if (this.data.visible) {
-      const { name, url, temperament, origin } = this.data.image;
+      const catDetail = this.data.image.data;
+      const { name, url, temperament, origin } = catDetail;
 
       this.$imageInfo.innerHTML = `
           <div class="overlay"></div>

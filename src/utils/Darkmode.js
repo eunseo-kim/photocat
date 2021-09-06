@@ -6,7 +6,7 @@ export default class DarkMode {
         <label for="toggleBtn"><i class="fas fa-lightbulb"></i></label>
       </div>
     `;
-    $target.innerHTML = template;
+    $target.innerHTML += template;
     this.render();
   }
 
@@ -27,9 +27,8 @@ export default class DarkMode {
   }
 
   render() {
-    const darkmodeBtn = document.getElementById("toggleBtn");
-    darkmodeBtn.addEventListener("click", (e) => {
-      e.preventDefault();
+    const darkmodeBtn = document.querySelector("#toggleBtn");
+    darkmodeBtn.addEventListener("click", () => {
       this.changeMode();
     });
   }

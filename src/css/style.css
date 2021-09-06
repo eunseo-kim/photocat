@@ -175,6 +175,44 @@ body {
   }
 }
 
+/* lodaer */
+.loading-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#loading {
+  width: 10em;
+  height: 10em;
+  border: 6px solid var(--text-color);
+  border-radius: 50%;
+  border-top-color: rgb(144, 96, 255);
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+.loading-wrapper p {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 /* dark mode 처리 */
 @media (prefers-color-scheme: dark) {
   :root {

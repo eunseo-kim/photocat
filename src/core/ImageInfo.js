@@ -25,7 +25,7 @@ export class ImageInfo {
 
   render() {
     if (this.data.visible) {
-      const catDetail = this.data.image.data;
+      const catDetail = this.data.info.data || { name: "정보없음", url: "정보없음", temperament: "정보없음", origin: "정보없음" };
       const { name, url, temperament, origin } = catDetail;
 
       this.$imageInfo.innerHTML = `

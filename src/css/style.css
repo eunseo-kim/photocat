@@ -21,6 +21,10 @@ li {
   margin: 0;
 }
 
+input:focus {
+  outline: none;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -56,15 +60,12 @@ body {
   grid-auto-rows: 350px;
 }
 
-.SearchResult img:hover {
-  opacity: 0.5;
-}
-
 .SearchResult img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   cursor: pointer;
+  border-radius: 0.3em;
 }
 
 .SearchResult .item {
@@ -72,13 +73,45 @@ body {
   display: inline-block;
   margin: 0 0;
   width: 100%;
+  border-radius: 0.3em;
 }
 
+.SearchResult img:hover {
+  opacity: 0.5;
+}
+
+/* input 입력창 */
 .SearchInput {
   width: 100%;
   font-size: 40px;
-  padding: 10px 15px;
+  padding: 10px 30px;
   margin-bottom: 10px;
+  border-radius: 1em;
+  border: 1px solid rgb(0, 0, 0, 0.3);
+  align-items: center;
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+.SearchInput:focus {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* 검색 결과 없을 때 */
+.no-search {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.no-search i {
+  font-size: 5em;
+}
+
+.no-search p {
+  font-size: 2em;
 }
 
 /* fade in, fade out */
@@ -177,7 +210,7 @@ body {
 
 /* lodaer */
 .loading-wrapper {
-  z-index: 1000;
+  z-index: 3;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -190,14 +223,15 @@ body {
 #loading {
   width: 10em;
   height: 10em;
-  border: 6px solid var(--text-color);
+  border: 6px solid rgb(246, 241, 255);
   border-radius: 50%;
-  border-top-color: rgb(144, 96, 255);
+  border-top-color: rgb(154, 111, 255);
   animation: spin 1s ease-in-out infinite;
   -webkit-animation: spin 1s ease-in-out infinite;
 }
 
 .loading-wrapper p {
+  color: rgb(246, 241, 255);
   font-size: 2em;
   font-weight: bold;
 }
@@ -226,7 +260,7 @@ body {
 }
 
 .darkmode-btn {
-  z-index: 999;
+  z-index: 1;
   position: fixed;
   bottom: 5%;
   left: 0;

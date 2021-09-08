@@ -28,12 +28,11 @@ export class App {
 
     this.searchResult = new SearchResult({
       $target,
-      initialData: this.data,
       onClick: async (image) => {
         this.loader.setState(true);
         this.imageInfo.setState({
           visible: true,
-          image: await api.fetchCatDetail(image.id),
+          info: await api.fetchCatDetail(image.id),
         });
         this.loader.setState(false);
       },
@@ -43,13 +42,14 @@ export class App {
       $target,
       data: {
         visible: false,
-        image: null,
+        info: null,
       },
     });
   }
 
   setState(nextData) {
     this.data = nextData;
+    console.log("this.data:", this.data);
     this.searchResult.setState(nextData);
   }
 }

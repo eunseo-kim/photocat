@@ -3,7 +3,7 @@ export class SearchResult {
   data = null;
   onClick = null;
 
-  constructor({ $target, initialData, onClick }) {
+  constructor({ $target, onClick }) {
     const article = document.createElement("section");
     article.className = "search-section";
     this.$searchResult = document.createElement("ul");
@@ -11,7 +11,6 @@ export class SearchResult {
     article.appendChild(this.$searchResult);
     $target.appendChild(article);
 
-    this.data = initialData;
     this.onClick = onClick;
 
     this.render();
@@ -23,20 +22,40 @@ export class SearchResult {
   }
 
   render() {
-    this.$searchResult.innerHTML = this.data
-      .map(
-        (cat) => `
+    if (!this.data) {
+      this.$searchResult.innerHTML = `
+      <section class="no-search">
+        <i class="fas fa-cat"></i>
+        <p>고양이를 검색해보세요</p>
+      </section>
+      `;
+
+      return;
+    } else {
+      if (this.data.length > 0) {
+        this.$searchResult.innerHTML = this.data
+          .map(
+            (cat) => `
             <li class="item">
               <img src=${cat.url} alt=${cat.name} />
             </li>
           `
-      )
-      .join("");
+          )
+          .join("");
 
-    this.$searchResult.querySelectorAll("li").forEach(($item, index) => {
-      $item.addEventListener("click", () => {
-        this.onClick(this.data[index]);
-      });
-    });
+        this.$searchResult.querySelectorAll("li").forEach(($item, index) => {
+          $item.addEventListener("click", () => {
+            this.onClick(this.data[index]);
+          });
+        });
+      } else {
+        this.$searchResult.innerHTML = `
+        <section class="no-search">
+          <i class="fas fa-box-open"></i>
+          <p>일치하는 결과가 없네요</p>
+        </section>
+      `;
+      }
+    }
   }
 }

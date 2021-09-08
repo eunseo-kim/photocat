@@ -1,5 +1,3 @@
-const TEMPLATE = '<input type="text">';
-
 export class SearchInput {
   constructor({ $target, onSearch }) {
     const $searchInput = document.createElement("input");
@@ -22,6 +20,4 @@ export class SearchInput {
 
     console.log("SearchInput created.", this);
   }
-
-  render() {}
 }

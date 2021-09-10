@@ -10,7 +10,6 @@ console.log("app is running!");
 export class App {
   $target = null;
   data = [];
-  loading = false;
 
   constructor($target) {
     this.$target = $target;
@@ -49,7 +48,6 @@ export class App {
 
   setState(nextData) {
     this.data = nextData;
-    console.log("this.data:", this.data);
     this.searchResult.setState(nextData);
   }
 }

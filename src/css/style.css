@@ -287,3 +287,34 @@ body {
   --background-color: var(--color-light);
   --text-color: var(--color-dark);
 }
+
+/* 최근 검색어 */
+.searchedList {
+  display: flex;
+  justify-content: left;
+}
+
+.searched-item {
+  display: flex;
+  background-color: white;
+  border-radius: 1em;
+  padding: 2px 10px;
+  margin: 10px;
+  color: black;
+  border: 1.5px solid black;
+}
+.searched-item:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.searched-item .keyword {
+  padding-right: 1em;
+}
+.searched-item .keyword:hover {
+  color: rgb(45, 75, 158);
+}
+
+.delete-keyword:hover {
+  color: red;
+}

@@ -81,18 +81,17 @@ body {
 }
 
 /* input 입력창 */
-.SearchInput {
+.search-input {
   width: 100%;
   font-size: 40px;
   padding: 10px 30px;
-  margin-bottom: 10px;
   border-radius: 1em;
   border: 1px solid rgb(0, 0, 0, 0.3);
   align-items: center;
   transition: box-shadow 0.5s ease-in-out;
 }
 
-.SearchInput:focus {
+.search-input:focus {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -100,7 +99,7 @@ body {
 .no-search {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 60%;
   transform: translate(-50%, -50%);
   text-align: center;
   width: 100%;
@@ -213,7 +212,7 @@ body {
   z-index: 3;
   position: fixed;
   left: 50%;
-  top: 50%;
+  top: 60%;
   transform: translate(-50%, -50%);
   justify-content: center;
   align-items: center;
@@ -264,7 +263,7 @@ body {
   position: fixed;
   bottom: 5%;
   left: 0;
-  width: 5em;
+  width: 4em;
   background-color: var(--text-color);
   color: var(--background-color);
   border-radius: 0 10em 10em 0;
@@ -275,7 +274,7 @@ body {
   float: right;
   padding: 15px 20px;
   cursor: pointer;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .dark-mode {
@@ -289,32 +288,32 @@ body {
 }
 
 /* 최근 검색어 */
-.searchedList {
+.recent-keywords {
   display: flex;
+  flex-direction: row;
   justify-content: left;
+  margin: 1em 0;
+  text-align: center;
+  font-size: 1.2em;
 }
 
-.searched-item {
-  display: flex;
+.keyword-text {
+  padding: 0.1em 0.5em;
+  margin-right: 0.3em;
+  border: 1px solid rgb(206, 206, 206);
+  border-radius: 0.2em;
+}
+
+.keyword-list {
+  margin: 0 0.3em;
+  padding: 0.1em 0.8em;
   background-color: white;
-  border-radius: 1em;
-  padding: 2px 10px;
-  margin: 10px;
   color: black;
-  border: 1.5px solid black;
+  border-radius: 1em;
+  border: 1px solid rgb(206, 206, 206);
 }
-.searched-item:hover {
+
+.keyword-list:hover {
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-}
-
-.searched-item .keyword {
-  padding-right: 1em;
-}
-.searched-item .keyword:hover {
-  color: rgb(45, 75, 158);
-}
-
-.delete-keyword:hover {
-  color: red;
+  background-color: rgb(235, 235, 235);
 }

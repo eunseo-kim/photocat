@@ -1,6 +1,5 @@
 function getItem(key) {
   const latestSearched = JSON.parse(localStorage.getItem(key));
-  console.log(latestSearched);
   return latestSearched;
 }
 

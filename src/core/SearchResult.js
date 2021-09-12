@@ -5,7 +5,7 @@ export class SearchResult {
 
   constructor({ $target, onClick }) {
     const article = document.createElement("section");
-    article.className = "search-section";
+    article.className = "result-section";
     this.$searchResult = document.createElement("ul");
     this.$searchResult.className = "SearchResult";
     article.appendChild(this.$searchResult);

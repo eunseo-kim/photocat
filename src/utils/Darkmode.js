@@ -3,7 +3,7 @@ export default class DarkMode {
     const template = `
       <div class="darkmode-btn">
         <input type="checkbox" id="toggleBtn" />
-        <label for="toggleBtn"><i class="fas fa-lightbulb"></i></label>
+        <label for="toggleBtn"><i class="fas fa-moon"></i></label>
       </div>
     `;
     $target.innerHTML += template;

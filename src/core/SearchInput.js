@@ -55,7 +55,7 @@ export class SearchInput {
     });
 
     this.SearchInput.addEventListener("keyup", (e) => {
-      if (e.keyCode === 13) {
+      if (e.keyCode === 13 && this.SearchInput.value !== "") {
         this.onSearch(this.SearchInput.value);
         this.addKeyword(this.SearchInput.value);
       }

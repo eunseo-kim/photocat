@@ -4,6 +4,7 @@ import { SearchResult } from "./core/SearchResult.js";
 import { ImageInfo } from "./core/ImageInfo.js";
 import DarkMode from "./utils/Darkmode.js";
 import Loader from "./utils/Loader.js";
+import { setItem, getItem } from "./utils/LocalStorage.js";
 
 console.log("app is running!");
 
@@ -20,10 +21,13 @@ export class App {
       $target,
       onSearch: async (keyword) => {
         this.loader.setState(true);
+        setItem("recent", keyword);
         await api.fetchCats(keyword).then(({ data }) => this.setState(data));
         this.loader.setState(false);
       },
     });
+
+    this.recentSearch(); // 마지막 검색 결과 화면 불러오기
 
     this.searchResult = new SearchResult({
       $target,
@@ -49,5 +53,12 @@ export class App {
   setState(nextData) {
     this.data = nextData;
     this.searchResult.setState(nextData);
+  }
+
+  recentSearch() {
+    const recentSearch = getItem("recent");
+    if (recentSearch) {
+      this.searchInput.onSearch(recentSearch);
+    }
   }
 }

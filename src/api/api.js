@@ -13,4 +13,8 @@ export const api = {
   fetchCatDetail: (id) => {
     return request(`${API_ENDPOINT}/api/cats/${id}`);
   },
+
+  fetchRandomCats: () => {
+    return request(`${API_ENDPOINT}/api/cats/random50`);
+  },
 };

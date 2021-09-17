@@ -19,10 +19,14 @@ export class App {
 
     this.searchInput = new SearchInput({
       $target,
-      onSearch: async (keyword) => {
+      onSearch: async (keyword, isRandom) => {
         this.loader.setState(true);
-        setItem("recent", keyword);
-        await api.fetchCats(keyword).then(({ data }) => this.setState(data));
+        if (!isRandom) {
+          await api.fetchCats(keyword).then(({ data }) => this.setState(data));
+          setItem("recent", keyword);
+        } else {
+          await api.fetchRandomCats().then(({ data }) => this.setState(data));
+        }
         this.loader.setState(false);
       },
     });

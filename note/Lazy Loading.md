@@ -8,7 +8,7 @@
 
 ### ✔해결방법
 
-- **[Intersection Observer API](https://developer.mozilla.org/ko/docs/Web/API/Intersection_Observer_API)**를 활용하여 Lazy Loading을 구현하였다.
+- [**Intersection Observer API**](https://developer.mozilla.org/ko/docs/Web/API/Intersection_Observer_API)를 활용하여 Lazy Loading을 구현하였다.
 
 - Intersection Observer API는 **감시 대상 요소가 viewport에 들어올 때 실행될 콜백 함수**를 등록할 수 있게 한다.
 
@@ -31,7 +31,7 @@
   >
   > 3. targeting an element to be observed
   >
-  >    - 위에서 생성된 객체 `observer`의 내장 함수 **[`observe()`](https://developer.mozilla.org/ko/docs/Web/API/IntersectionObserver/observe)** 안에 감시하려는 요소를 전달한다.
+  >    - 위에서 생성된 객체 `observer`의 내장 함수 [**`observe()`**](https://developer.mozilla.org/ko/docs/Web/API/IntersectionObserver/observe) 안에 감시하려는 요소를 전달한다.
   >
   >    ```js
   >    observer.observe(target); // target: 감시하려는 요소
@@ -49,7 +49,7 @@
   <img class="lazy" data-src="${cat.url}" alt="" />
   ```
 
-  불러올 이미지의 url을 `src`가 아닌 `data-src`에 할당한 점을 주의해서 보자. 이는 **[데이터 속성](https://developer.mozilla.org/ko/docs/Learn/HTML/Howto/Use_data_attributes)**에 url 정보를 담아둔 것으로, javascript에서는 `data-` 뒷 부분을 사용하여 데이터 속성을 가져올 수 있다.
+  불러올 이미지의 url을 `src`가 아닌 `data-src`에 할당한 점을 주의해서 보자. 이는 [**데이터 속성**](https://developer.mozilla.org/ko/docs/Learn/HTML/Howto/Use_data_attributes)에 url 정보를 담아둔 것으로, javascript에서는 `data-` 뒷 부분을 사용하여 데이터 속성을 가져올 수 있다.
 
 <br>
 

@@ -12,13 +12,33 @@ export class SearchResult {
     $target.appendChild(article);
 
     this.onClick = onClick;
-
     this.render();
+    this.lazyLoading();
   }
 
   setState(nextData) {
     this.data = nextData;
     this.render();
+    this.lazyLoading();
+  }
+
+  lazyLoading() {
+    const lazyloadImages = document.querySelectorAll(".lazy");
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          console.log("run lazyLoading!");
+          const image = entry.target;
+          image.src = image.dataset.src;
+          image.classList.remove("lazy");
+          imageObserver.unobserve(image);
+        }
+      });
+    });
+
+    lazyloadImages.forEach(function (image) {
+      imageObserver.observe(image);
+    });
   }
 
   render() {
@@ -37,7 +57,7 @@ export class SearchResult {
           .map(
             (cat) => `
             <li class="item">
-              <img src=${cat.url} alt=${cat.name} />
+              <img class="lazy" data-src="${cat.url}" alt="" />
             </li>
           `
           )

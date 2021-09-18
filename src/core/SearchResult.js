@@ -13,7 +13,6 @@ export class SearchResult {
 
     this.onClick = onClick;
     this.render();
-    this.lazyLoading();
   }
 
   setState(nextData) {
@@ -23,11 +22,9 @@ export class SearchResult {
   }
 
   lazyLoading() {
-    const lazyloadImages = document.querySelectorAll(".lazy");
-    const imageObserver = new IntersectionObserver((entries, observer) => {
+    const imageObserver = new IntersectionObserver((entries) => {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          console.log("run lazyLoading!");
           const image = entry.target;
           image.src = image.dataset.src;
           image.classList.remove("lazy");
@@ -36,6 +33,7 @@ export class SearchResult {
       });
     });
 
+    const lazyloadImages = document.querySelectorAll(".lazy");
     lazyloadImages.forEach(function (image) {
       imageObserver.observe(image);
     });

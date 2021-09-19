@@ -23,15 +23,12 @@ export class App {
         this.loader.setState(true);
         if (!isRandom) {
           await api.fetchCats(keyword).then(({ data }) => this.setState(data));
-          setItem("recent", keyword);
         } else {
           await api.fetchRandomCats().then(({ data }) => this.setState(data));
         }
         this.loader.setState(false);
       },
     });
-
-    this.recentSearch(); // 마지막 검색 결과 화면 불러오기
 
     this.searchResult = new SearchResult({
       $target,
@@ -52,17 +49,20 @@ export class App {
         info: null,
       },
     });
+
+    this.recentSearch(); // 마지막 검색 결과 화면 불러오기
   }
 
   setState(nextData) {
     this.data = nextData;
+    setItem("recent", this.data);
     this.searchResult.setState(nextData);
   }
 
   recentSearch() {
     const recentSearch = getItem("recent");
     if (recentSearch) {
-      this.searchInput.onSearch(recentSearch);
+      this.setState(recentSearch);
     }
   }
 }
